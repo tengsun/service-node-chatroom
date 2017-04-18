@@ -1,3 +1,28 @@
 <html>
-Welcome to Mini Chatroom!
+<head>
+	<title>Chatroom</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+<div id='content'>
+	<h3>Welcome to Mini Chatroom!</h3>
+	
+	<div id='room'></div>
+	<div id='room-list'></div>
+	<div id='messages'></div>
+
+	<form id='send-form'>
+		<input id='send-msg' />
+		<input id='send-btn' type="submit" value="send">
+		<div id='help'>
+			Chat commands:
+			<ul>
+				<li>Change nickname: /nick [username]</li>
+				<li>Join/create room: /join [room name]</li>
+			</ul>
+		</div>
+	</form>
+</div>
+</body>
 </html>
