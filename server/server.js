@@ -69,3 +69,8 @@ var server = http.createServer(function(request, response) {
 server.listen(1234, function() {
 	console.log('server listening on part 1234.');
 });
+
+// setup chat server
+
+var chatServer = require('./lib/chat-server');
+chatServer.listen(server);
