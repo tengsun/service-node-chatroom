@@ -1,9 +1,6 @@
 var http = require('http');
-
 var fs = require('fs');
-
 var path = require('path');
-
 var mime = require('mime');
 
 var cache = {};
@@ -11,7 +8,9 @@ var cache = {};
 // send error response
 
 function send404(response) {
-	response.writeHead(404, {'Content-Type': 'text/plain'});
+	response.writeHead(404, {
+		'Content-Type': 'text/plain'
+	});
 	response.write('Error 404: resource not found');
 	response.end();
 }
@@ -32,11 +31,11 @@ function serveStatic(response, cache, absPath) {
 		sendFile(response, absPath, cache[absPath]);
 	} else {
 		// check file exists
-		fs.exists(absPath, function(exists) {
+		fs.exists(absPath, function (exists) {
 			if (exists) {
 
 				// read target file
-				fs.readFile(absPath, function(err, data) {
+				fs.readFile(absPath, function (err, data) {
 					if (err) {
 						send404(response);
 					} else {
@@ -53,7 +52,7 @@ function serveStatic(response, cache, absPath) {
 
 // create http server
 
-var server = http.createServer(function(request, response) {
+var server = http.createServer(function (request, response) {
 	var filePath = false;
 
 	if (request.url == '/') {
@@ -66,7 +65,7 @@ var server = http.createServer(function(request, response) {
 	serveStatic(response, cache, absPath);
 });
 
-server.listen(1234, function() {
+server.listen(1234, function () {
 	console.log('server listening on part 1234.');
 });
 
