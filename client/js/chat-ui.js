@@ -13,7 +13,7 @@ function processUserInput(chatApp, socket) {
 	if (message.charAt(0) == '/') {
 		sysMessage = chatApp.processCommand(message);
 		if (sysMessage) {
-			$('#message').append(prepareSystemMsg(sysMessage));
+			$('#messages').append(prepareSystemMsg(sysMessage));
 		}
 	} else {
 		chatApp.sendMessage($('#room').text(), message);
